@@ -1,0 +1,26 @@
+{
+	"name": "RecentChangesWebhooks",
+	"version": "0.0.0",
+	"author": [
+		"Ken Hilton"
+	],
+	"url": "https://github.com/Kenny2github/RecentChangesWebhooks",
+	"descriptionmsg": "rcw-desc",
+	"license-name": "GPLv3",
+	"type": "hook",
+	"AutoloadClasses": {
+		"RecentChangesWebhooksHooks": "RecentChangesWebhooks.class.php"
+	},
+	"Hooks": {
+		"RecentChange_save": "RecentChangesWebhooksHooks::onChange"
+	},
+	"config": {
+		"RCWHookPaths": []
+	},
+	"MessagesDirs": {
+		"Report": [
+			"i18n"
+		]
+	},
+	"manifest_version": 1
+}
