@@ -18,7 +18,7 @@
 		"RCWHookPaths": []
 	},
 	"MessagesDirs": {
-		"Report": [
+		"RecentChangesWebhooks": [
 			"i18n"
 		]
 	},
