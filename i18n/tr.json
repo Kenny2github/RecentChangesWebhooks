@@ -1,0 +1,7 @@
+{
+	"@metadata": {
+		"author": "ahmetlii"
+	},
+	"recentchangeswebhooks": "SonDeğişikliklerWebhookları",
+	"rcw-desc": "Her [[Özel:SonDeğişiklikler|son değişikliği]] harekete geçirmek için webhooklar ekler."
+}

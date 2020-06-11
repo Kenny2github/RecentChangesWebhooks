@@ -1,7 +1,0 @@
-{
-	"@metadata": {
-		"author": "Ken Hilton"
-	},
-	"recentchangeswebhooks": "RecentChangesWebhooks",
-	"rcw-desc": "Adds webhooks for every [[Special:RecentChanges|recent change]] to trigger."
-}
