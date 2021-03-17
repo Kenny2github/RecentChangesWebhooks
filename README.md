@@ -15,4 +15,4 @@ wfLoadExtension( 'RecentChangesWebhooks' );
 ```
 
 ## Configuration
-WIP
+`$wgRCWHookUrls` - an array containing the URLs of the web hooks to be triggered when a change has been made
