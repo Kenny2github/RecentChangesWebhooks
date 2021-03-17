@@ -28,7 +28,7 @@ class RecentChangesWebhooksHooks {
 			case 'job':
 				JobQueueGroup::singleton()->push(RecentChangesWebhooksJob::of($change)); break;
 			case 'realtime':
-				self::invokeWebhooks(json_encode($change)); break;
+				self::invokeWebhooks(json_encode($change->getAttributes())); break;
 		}
 	}
 
