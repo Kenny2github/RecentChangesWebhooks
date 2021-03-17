@@ -1,6 +1,6 @@
 <?php
 class RecentChangesWebhooksJob extends Job {
-	static function Of($change) {
+	static function of($change) {
 		return new RecentChangesWebhooksJob('', ['change' => json_encode($change->getAttributes())]);
 	}
 	
