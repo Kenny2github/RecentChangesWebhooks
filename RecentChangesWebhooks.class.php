@@ -3,7 +3,7 @@ class RecentChangesWebhooksHooks {
 	static function invokeWebhooks(string $jsonEncodedChange) {
 		global $wgRCWHookUrls;
 		
-		foreach ($wgRCWHookUrls as $url) {						
+		foreach ($wgRCWHookUrls as $url) {
 			$ch = curl_init();
 			curl_setopt_array($ch, [
 				CURLOPT_URL => $url,
