@@ -2,20 +2,26 @@
 	"name": "RecentChangesWebhooks",
 	"version": "0.0.0",
 	"author": [
-		"Ken Hilton"
+		"Ken Hilton",
+		"Jacob Goldberg"
 	],
 	"url": "https://github.com/Kenny2github/RecentChangesWebhooks",
 	"descriptionmsg": "rcw-desc",
 	"license-name": "GPLv3",
 	"type": "hook",
 	"AutoloadClasses": {
-		"RecentChangesWebhooksHooks": "RecentChangesWebhooks.class.php"
+		"RecentChangesWebhooksHooks": "RecentChangesWebhooks.class.php",
+		"RecentChangesWebhooksJob": "RecentChangesWebhooksJob.php"
 	},
 	"Hooks": {
 		"RecentChange_save": "RecentChangesWebhooksHooks::onChange"
 	},
+	"JobClasses": {
+		"recentChangesWebhooks": "RecentChangesWebhooksJob"
+	},
 	"config": {
-		"RCWHookPaths": []
+		"RCWHookPaths": [],
+		"RCWHookType": "realtime"
 	},
 	"MessagesDirs": {
 		"RecentChangesWebhooks": [
