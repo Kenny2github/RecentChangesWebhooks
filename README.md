@@ -16,3 +16,4 @@ wfLoadExtension( 'RecentChangesWebhooks' );
 
 ## Configuration
 `$wgRCWHookUrls` - an array containing the URLs of the web hooks to be triggered when a change has been made
+`$wgRCWHookType` - either `realtime` or `job` to determine whether the webhook should be run synchronously with page edits or in a job
