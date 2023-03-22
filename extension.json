@@ -1,6 +1,6 @@
 {
 	"name": "RecentChangesWebhooks",
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"author": [
 		"Ken Hilton",
 		"Jacob Goldberg"
@@ -13,20 +13,32 @@
 		"RecentChangesWebhooksHooks": "RecentChangesWebhooks.class.php",
 		"RecentChangesWebhooksJob": "RecentChangesWebhooksJob.php"
 	},
+	"HookHandlers": {
+		"main": {
+			"class": "RecentChangesWebhooksHooks",
+			"services": [
+				"JobQueueGroup"
+			]
+		}
+	},
 	"Hooks": {
-		"RecentChange_save": "RecentChangesWebhooksHooks::onChange"
+		"RecentChange_save": "main"
 	},
 	"JobClasses": {
 		"recentChangesWebhooks": "RecentChangesWebhooksJob"
 	},
 	"config": {
-		"RCWHookPaths": [],
-		"RCWHookType": "realtime"
+		"RCWHookPaths": {
+			"value": []
+		},
+		"RCWHookType": {
+			"value": "realtime"
+		}
 	},
 	"MessagesDirs": {
 		"RecentChangesWebhooks": [
 			"i18n"
 		]
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }

@@ -1,6 +1,14 @@
 <?php
-class RecentChangesWebhooksHooks {	
-	static function invokeWebhooks(string $jsonEncodedChange) {
+use MediaWiki\Hook\RecentChange_saveHook;
+
+class RecentChangesWebhooksHooks implements RecentChange_saveHook {
+	private JobQueueGroup $jobQueueGroup;
+	
+	function __construct(JobQueueGroup $jobQueueGroup) {
+		$this->jobQueueGroup = $jobQueueGroup;
+	}
+
+	public static function invokeWebhooks(string $jsonEncodedChange) {
 		global $wgRCWHookUrls;
 		
 		foreach ($wgRCWHookUrls as $url) {
@@ -21,15 +29,14 @@ class RecentChangesWebhooksHooks {
 		}
 	}
 
-	public static function onChange( &$change ) {
+	public function onRecentChange_save( $recentChange ) {
 		global $wgRCWHookType;
-		
+				
 		switch ($wgRCWHookType) {
 			case 'job':
-				JobQueueGroup::singleton()->push(RecentChangesWebhooksJob::of($change)); break;
+				$this->jobQueueGroup->push(RecentChangesWebhooksJob::of($recentChange)); break;
 			case 'realtime':
-				self::invokeWebhooks(json_encode($change->getAttributes())); break;
+				self::invokeWebhooks(json_encode($recentChange->getAttributes())); break;
 		}
 	}
-
 }
